@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Библиотека</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="mainPage.html">Главная</a>
+        <a href="#">Библиотека</a>
+        <a href="#">Планы</a>
+        <a href="#">Заметки</a>
+        <a href="#">Концепты</a>
+        <a href="#">Мой Имя</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="section-title">Мои коллекции</div>
+    <div class="collection-grid">
+        <button class="card create" id="createBtn">Создать</button>
+        <div id="collectionsList"></div>
+    </div>
+    
+
+    <div class="section-title">Последние открытия</div>
+
+    <div class="section-title">Все книги</div>
+    <div class="all-books-grid">
+        <input type="file" id="fileInput" accept=".txt">
+        <button class="book-card add-book" id="readFileButton">Добавить книгу</button>
+        <pre id="fileContent" class="content"></pre>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+

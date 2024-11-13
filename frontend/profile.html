@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Моя страница</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="mainPage.html">Главная</a>
+            <a href="Library.html">Библиотка</a>
+            <a href="#">Планы</a>
+            <a href="#">Заметки</a>
+            <a href="#">Концепты</a>
+            <a href="profile.html" id="displayUsername"></a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="profile">
+            <h1>Моя страница</h1>
+            <div class="profile-info">
+                <img src="profile-pic.png" alt="Фото профиля" class="profile-pic">
+                <div>
+                    <h2 id="displayUsername"></h2>
+                    <p>emailalala@urfu.me</p>
+                    <a href="#" class="change-photo">Изменить фото профиля</a>
+                    <button class="logout">Выход</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="statistics">
+            <h2>Статистика</h2>
+            <div class="goals">
+                <h3>Цели</h3>
+                <div class="goal-progress">
+                    <span class="progress-value">70/100</span>
+                    <div class="progress-circle"></div>
+                </div>
+                <p>Количество страниц в день</p>
+                <p>Время чтения за день</p>
+            </div>
+            <div class="weekly-summary">
+                <h3>Понедельник</h3>
+                <div class="days">
+                    <span>Пн</span>
+                    <span>Вт</span>
+                    <span>Ср</span>
+                    <span>Чт</span>
+                    <span>Пт</span>
+                    <span>Сб</span>
+                    <span>Вс</span>
+                </div>
+            </div>
+            <div class="total-summary">
+                <p>Всего прочитано книг: <strong>20</strong></p>
+                <p>Общее время чтения: <strong>125</strong> минут</p>
+            </div>
+        </section>
+    </main>
+    <script src="mainPage.js"></script>
+</body>
+</html>
+
