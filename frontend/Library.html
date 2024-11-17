@@ -16,28 +16,20 @@
         <a href="#">Планы</a>
         <a href="#">Заметки</a>
         <a href="#">Концепты</a>
-        <a href="#">Мой Имя</a>
+        <a href="profile.html">Мой Имя</a>
     </nav>
 </header>
 
-<div class="container">
-    <div class="section-title">Мои коллекции</div>
-    <div class="collection-grid">
-        <button class="card create" id="createBtn">Создать</button>
-        <div id="collectionsList"></div>
-    </div>
+<main>
+    <h1>Список книг</h1>
+    <input type="text" id="bookInput" placeholder="Введите название книги">
+    <input type="file" id="bookFile" accept=".txt">
+    <button onclick="addBook()">Добавить книгу</button>
     
-
-    <div class="section-title">Последние открытия</div>
-
-    <div class="section-title">Все книги</div>
-    <div class="all-books-grid">
-        <input type="file" id="fileInput" accept=".txt">
-        <button class="book-card add-book" id="readFileButton">Добавить книгу</button>
-        <pre id="fileContent" class="content"></pre>
-    </div>
-</div>
-<script src="script.js"></script>
+    <h2>Книги:</h2>
+    <ul id="bookList"></ul>
+</main>
+<script src="libscript.js"></script>
 </body>
 </html>
 

@@ -35,14 +35,24 @@
         
         <section class="statistics">
             <h2>Статистика</h2>
-            <div class="goals">
-                <h3>Цели</h3>
-                <div class="goal-progress">
-                    <span class="progress-value">70/100</span>
-                    <div class="progress-circle"></div>
+            <div class="container">
+                <h1>Цель</h1>
+                <label for="goal">Установите цель (страницы):</label>
+                <input type="number" id="goal" placeholder="Введите цель" min="1">
+            
+                <label for="readPages">Количество прочитанных страниц:</label>
+                <input type="number" id="readPagesInput" placeholder="Введите прочитанные страницы" min="0">
+            
+                <button id="addPages">Добавить прочитанные страницы</button>
+            
+                <div class="circle">
+                    <div class="progress" data-percentage="0">
+                        <span></span>
+                    </div>
+                    <p id="status">0/0</p>
                 </div>
-                <p>Количество страниц в день</p>
-                <p>Время чтения за день</p>
+            
+                <p id="congratulationsMessage" style="display: none;">Поздравляем! Вы выполнили цель.</p>
             </div>
             <div class="weekly-summary">
                 <h3>Понедельник</h3>
@@ -63,6 +73,7 @@
         </section>
     </main>
     <script src="mainPage.js"></script>
+    <script src="goal.js"></script>
 </body>
 </html>
 
