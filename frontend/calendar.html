@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Календарь чтения</title>
+    <link rel="stylesheet" href="calendarstyle.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="mainPage.html">Главная</a>
+            <a href="Library.html">Библиотка</a>
+            <a href="calendar.html">Планы</a>
+            <a href="#">Заметки</a>
+            <a href="konspect.html">Концепты</a>
+            <a href="profile.html" id="displayUsername"></a>
+        </nav>
+    </header>
+    <div class="calendar-container">
+        <div class="calendar">
+            <div class="header">
+                <button id="prevMonth">‹</button>
+                <h2 id="monthYear"></h2>
+                <button id="nextMonth">›</button>
+            </div>
+            <div class="days"></div>
+        </div>
+    </div>
+    <div class="book-modal" id="bookModal">
+        <input type="text" id="bookTitle" placeholder="Введите название книги">
+        <button id="saveBook">Сохранить</button>
+        <button id="cancelBook">Отменить</button>
+    </div>
+    <script src="calendarscript.js"></script>
+    <script src="style.css"></script>
+</body>
+</html>
+
