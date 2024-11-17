@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Содержание книги</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+    </style>
+</head>
+<body>
+    <h1>Содержание книги</h1>
+    <pre id="contentText"></pre>
+    <button onclick="goBack()">Вернуться</button>
+
+    <script>
+        function goBack() {
+            window.history.back(); // Возвращаемся на предыдущую страницу
+        }
+
+        window.onload = function() {
+            const book = JSON.parse(localStorage.getItem('currentBook'));
+            document.getElementById('contentText').innerText = book.content;
+        }
+    </script>
+</body>
+</html>
+

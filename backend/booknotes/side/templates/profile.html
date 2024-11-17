@@ -1,0 +1,61 @@
+{%extends 'index.html'%}
+{%load static%}
+{%block title%}Профиль{%endblock%}
+
+{%block content%}
+    <main>
+        <section class="profile">
+            <h1>Моя страница</h1>
+            <div class="profile-info">
+                <img src="profile-pic.png" alt="Фото профиля" class="profile-pic">
+                <div>
+                    <h2 id="displayUsername"></h2>
+                    <p>emailalala@urfu.me</p>
+                    <a href="#" class="change-photo">Изменить фото профиля</a>
+                    <button class="logout">Выход</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="statistics">
+            <h2>Статистика</h2>
+            <div class="container">
+                <h1>Цель</h1>
+                <label for="goal">Установите цель (страницы):</label>
+                <input type="number" id="goal" placeholder="Введите цель" min="1">
+            
+                <label for="readPages">Количество прочитанных страниц:</label>
+                <input type="number" id="readPagesInput" placeholder="Введите прочитанные страницы" min="0">
+            
+                <button id="addPages">Добавить прочитанные страницы</button>
+            
+                <div class="circle">
+                    <div class="progress" data-percentage="0">
+                        <span></span>
+                    </div>
+                    <p id="status">0/0</p>
+                </div>
+            
+                <p id="congratulationsMessage" style="display: none;">Поздравляем! Вы выполнили цель.</p>
+            </div>
+            <div class="weekly-summary">
+                <h3>Понедельник</h3>
+                <div class="days">
+                    <span>Пн</span>
+                    <span>Вт</span>
+                    <span>Ср</span>
+                    <span>Чт</span>
+                    <span>Пт</span>
+                    <span>Сб</span>
+                    <span>Вс</span>
+                </div>
+            </div>
+            <div class="total-summary">
+                <p>Всего прочитано книг: <strong>20</strong></p>
+                <p>Общее время чтения: <strong>125</strong> минут</p>
+            </div>
+        </section>
+    </main>
+    <script src="{%static 'js/goal.js'%}"></script>
+
+    {%endblock%}

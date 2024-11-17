@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Библиотека</title>
+    {%block style%}
+    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+    {%endblock%}
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="/">Главная</a>
+        <a href="books">Библиотка</a>
+        <a href="calendar">Планы</a>
+        <a href="#">Заметки</a>
+        <a href="conspect">Концепты</a>
+        <a href="profile" id="displayUsername"></a>
+    </nav>
+</header>
+{%block content%}
+
+<div class="container">
+    <div class="card">Последняя книга</div>
+    <div class="card">Статистика</div>
+    <div class="card">Добавить новую книгу</div>
+</div>
+{%endblock%}
+<script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

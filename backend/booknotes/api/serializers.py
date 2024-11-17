@@ -25,3 +25,8 @@ class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         fields = '__all__'
+        
+class ConspectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Conspect
+        fields = '__all__'

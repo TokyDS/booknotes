@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+{%load static%}
+{%block title%}
+Библиотека
+{% endblock %}
+
+{% block content%}
+<main>
+    <h1>Список книг</h1>
+    <input type="text" id="bookInput" placeholder="Введите название книги">
+    <input type="file" id="bookFile" accept=".txt">
+    <button onclick="addBook()">Добавить книгу</button>
+    
+    <h2>Книги:</h2>
+    <ul id="bookList"></ul>
+</main>
+<script src="{%static 'js/library.js'%}"></script>
+{% endblock%}

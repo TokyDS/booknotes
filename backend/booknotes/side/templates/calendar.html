@@ -1,0 +1,24 @@
+{%extends 'index.html'%}
+
+{%load static%}
+{%block style%}
+<link rel="stylesheet" href="{%static 'css/calendar.css'%}">
+{%endblock%}
+{%block content%}
+<div class="calendar-container">
+    <div class="calendar">
+        <div class="header">
+            <button id="prevMonth">‹</button>
+            <h2 id="monthYear"></h2>
+            <button id="nextMonth">›</button>
+        </div>
+        <div class="days"></div>
+    </div>
+</div>
+<div class="book-modal" id="bookModal">
+    <input type="text" id="bookTitle" placeholder="Введите название книги">
+    <button id="saveBook">Сохранить</button>
+    <button id="cancelBook">Отменить</button>
+</div>
+<script src="{%static 'js/calendar.js'%}"></script>
+{%endblock%}

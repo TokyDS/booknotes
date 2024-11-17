@@ -10,6 +10,7 @@ from .filters import *
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    
     filter_backends = [DjangoFilterBackend, OrderingFilter]
     filterset_class = BookFilter
     ordering_fields = ['id', 'title', 'author']
@@ -42,6 +43,7 @@ class AuthorViewSet(viewsets.ModelViewSet):
 class NoteViewSet(viewsets.ModelViewSet):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
+    
     filter_backends = [DjangoFilterBackend, OrderingFilter]
     filterset_class = NoteFilter
     ordering_fields = ['id', 'title', 'tag']
@@ -51,3 +53,7 @@ class TagViewSet(viewsets.ModelViewSet):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
     
+    
+class ConspectViewSet(viewsets.ModelViewSet):
+    queryset = Conspect.objects.all()
+    serializer_class = Conspect

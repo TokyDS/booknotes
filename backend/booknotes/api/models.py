@@ -3,7 +3,7 @@ from django.urls import reverse
 
 # Create your models here.
 def user_directory_path(instance, filename): 
-    return 'static/{0}/{1}'.format(instance.title, filename) 
+    return 'static/img/{0}/{1}'.format(instance.id, filename) 
 
 class Author(models.Model):
     first_name = models.CharField(max_length=50)
@@ -52,3 +52,11 @@ class Note(models.Model):
     def __str__(self):
         return self.title
     
+
+class Conspect(models.Model):
+    title = models.CharField()
+    text = models.CharField()
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True, null=True)
+    def __str__(self):
+        return self.title
+        
