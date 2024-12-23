@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, content="width=1.0">
+    <title>Коллекция</title>
+    <link rel="stylesheet" href="Library.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="mainPage.html">Главная</a>
+            <a href="Library.html">Библиотека</a>
+            <a href="calendar.html">Планы</a>
+            <a href="#">Заметки</a>
+            <a href="konspect.html">Концепты</a>
+            <a href="profile.html">Мой Имя</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Коллекция книг</h1>
+        <ul id="bookInCollection"></ul>
+        
+        <h2>Добавить существующую книгу</h2>
+        <select id="bookSelect"></select>
+        <button onclick="addBookToCollection()">Добавить книгу</button>
+        
+        <button onclick="goBack()">Назад</button>
+    </main>
+    <script src="collectionScript.js"></script>
+</body>
+</html>
+

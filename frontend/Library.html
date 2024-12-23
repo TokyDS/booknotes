@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Библиотека</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Library.css">
 </head>
 <body>
 
 <header>
     <nav>
         <a href="mainPage.html">Главная</a>
-        <a href="#">Библиотека</a>
-        <a href="#">Планы</a>
+        <a href="Library.html">Библиотека</a>
+        <a href="calendar.html">Планы</a>
         <a href="#">Заметки</a>
-        <a href="#">Концепты</a>
+        <a href="konspect.html">Концепты</a>
         <a href="profile.html">Мой Имя</a>
     </nav>
 </header>
@@ -28,6 +28,13 @@
     
     <h2>Книги:</h2>
     <ul id="bookList"></ul>
+    
+    <h1>Коллекции</h1>
+    <input type="text" id="collectionInput" placeholder="Введите название коллекции">
+    <button onclick="addCollection()">Добавить коллекцию</button>
+    
+    <h2>Список коллекций:</h2>
+    <ul id="collectionList"></ul>
 </main>
 <script src="libscript.js"></script>
 </body>

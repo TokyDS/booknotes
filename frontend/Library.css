@@ -4,12 +4,12 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #F5F5DC; /* Светлый фон страницы */
     margin: 0;
-    padding: 0;
+    padding: 20px; /* Отступы для всего тела */
 }
 
 header {
     background-color: #D9CBAE; /* Цвет фона заголовка */
-    padding: 20px;
+    padding: 20px 0;
 }
 
 nav {
@@ -27,27 +27,22 @@ nav a:hover {
     color: #5A8B5B; /* Цвет текста при наведении */
 }
 
-/* Стили для контейнера и заголовка */
-.container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px; /* Отступы для контейнера */
+/* Стили для основного контента */
+main {
+    max-width: 1200px; /* Максимальная ширина основного контента */
+    margin: 20px auto; /* Автоматические отступы по центру */
     text-align: center; /* Центрируем текст */
 }
 
-.container h1 {
+main h1 {
     color: #333; /* Цвет заголовка */
 }
 
-/* Стили для формы */
-.form-group {
-    margin-bottom: 30px;
-}
-
-input[type="text"], textarea {
-    width: 100%;
+/* Стили для формы добавления книги */
+input[type="text"], input[type="file"] {
+    width: 300px; /* Ширина поля ввода */
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px 5px;
     border: 1px solid #D0D0D0; /* Цвет бордюра */
     border-radius: 5px; /* Закругленные углы */
     font-size: 1em;
@@ -66,35 +61,24 @@ button:hover {
     background-color: #457a45; /* Цвет кнопки при наведении */
 }
 
-/* Стили для секции конспектов */
-#summaries {
-    display: flex;
-    flex-wrap: wrap; /* Обрезка элементов, если они не помещаются */
-    justify-content: space-around;
+/* Стили для списка книг */
+ul {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0;
 }
 
-.summary-card {
-    background-color: #FFFFFF; /* Белый фон карточки */
+li {
+    background-color: #FFFFFF; /* Белый фон для каждой книги */
     border: 1px solid #D0D0D0; /* Цвет границы */
     border-radius: 10px; /* Закругленные углы */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
-    margin: 10px;
-    padding: 20px;
-    width: 300px; /* Ширина карточки */
+    margin: 10px 0;
+    padding: 15px;
+    font-size: 1em; /* Размер текста в списке */
     transition: transform 0.2s; /* Плавный эффект при наведении */
 }
 
-.summary-card:hover {
-    transform: scale(1.05); /* Увеличение карточки при наведении */
+li:hover {
+    transform: scale(1.02); /* Увеличение списка при наведении */
 }
 
-.summary-card h3 {
-    margin: 0;
-    font-size: 1.2em; /* Размер заголовка */
-    color: #333; /* Темный цвет заголовка */
-}
-
-.summary-card p {
-    font-size: 0.9em; /* Размер текста в карточке */
-    color: #666; /* Цвет текста */
-}
