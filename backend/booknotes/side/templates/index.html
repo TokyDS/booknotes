@@ -1,34 +1,43 @@
-{% load static %}
+{%extends 'base.html'%} {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Библиотека</title>
-    {%block style%}
-    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {%block title%} Главная {% endblock %}
+  </head>
+  <body>
+    {%block content%}
+    <div class="col">
+      <div class="container last_books">
+        <h2 class="container_header">Последние книги</h2>
+        <div class="container_body">
+          {%for book in books%}
+          <div class="card">
+            <img src="{{book.cover}}" />
+            <div class="card_title">{{book.title}}</div>
+            <div class="card_author">{{book.author}}</div>
+            <a class="read" href="{% url 'book' book.id%}"><button>Читать</button></a>
+          </div>
+          {%endfor%}
+        </div>
+      </div>
+
+      <div class="container wannaadd" style='background-image: url("{% static 'svg/wanna.svg' %}")'>
+        <h2 class="container_header" 
+        >
+          Хотите добавить свою книгу?
+        </h2>
+       <a class="add" href="#add_form"><button >Загрузить</button></a>
+      </div>
+    </div>
+
+    <div class="container my_statistics">
+      <h2 class="container_header">Моя статистика</h2>
+      <img src="{%static 'img/dirt/stat.png'%}" alt="" />
+    </div>
+    {% include "includes/add_form.html" %}
     {%endblock%}
-</head>
-<body>
-
-<header>
-    <nav>
-        <a href="/">Главная</a>
-        <a href="books">Библиотка</a>
-        <a href="calendar">Планы</a>
-        <a href="#">Заметки</a>
-        <a href="conspect">Концепты</a>
-        <a href="profile" id="displayUsername"></a>
-    </nav>
-</header>
-{%block content%}
-
-<div class="container">
-    <div class="card">Последняя книга</div>
-    <div class="card">Статистика</div>
-    <div class="card">Добавить новую книгу</div>
-</div>
-{%endblock%}
-<script src="{% static 'js/index.js' %}"></script>
-</body>
+    <script src="{% static 'js/index.js' %}"></script>
+  </body>
 </html>

@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{%load static%}
+{%block title%}
+<title>Библиотека</title>
+{% endblock %}
+
+{% block content%}
+    <a href="{{request.META.HTTP_REFERER}}">Вернуться</a>
+    <h1>
+        {{book.title}}
+    </h1>    
+    <p>
+        {{book.description}}
+    </p>
+    <img src="{{book.cover}}" width=120px>
+
+{%endblock%}

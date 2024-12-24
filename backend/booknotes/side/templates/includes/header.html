@@ -1,0 +1,15 @@
+{% load static %}
+<header>
+  <a class="logo" href="/"><img  src="{%static 'svg/logo.svg'%}"/></a>
+  <nav>
+    <a href="/">Главная</a>
+    <a href="books">Библиотека</a>
+    <a href="calendar">Планы</a>
+    <a href="#">Заметки</a>
+    <a href="conspect">Конспекты</a>
+  </nav>
+  <a class="profile" href="profile" id="displayUsername">
+    <p>Пользователь</p>
+    <img class="nav_profile" src={%static 'img/profile/test.jpg'%}>
+  </a>
+</header>

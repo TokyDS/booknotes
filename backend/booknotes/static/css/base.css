@@ -1,0 +1,293 @@
+
+a {
+    text-decoration: none;
+    
+}
+/* Общие стили */
+html, body{
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif; 
+    font-size: 20px;
+    background-color: #FBF7F0; /* Светлый фон страницы */
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+header {
+    background-color: #BCBC8B; /* Цвет фона заголовка */
+    height: 60px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+header nav {
+    display: flex;
+    width: 1350px;
+    font-size: 20px;
+    padding-left: 100px;
+    justify-content: space-between;
+
+}
+
+header .logo{
+    margin:8px 15px;
+}
+nav a {
+    color: #5F5F35; /* Цвет текста ссылок */
+    height:26px;
+    width: 200px;
+    padding:17px 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+nav a:hover {
+    color: #404004; /* Цвет текста при наведении */
+    transform: scale(1.1);
+    font-weight: 600;
+    background-color: #A6A682;
+    padding-bottom: 13px;
+    border-bottom: 4px solid #404004;
+    border-radius: 8px 8px 2px 2px;
+}
+
+.profile{
+    display: flex;
+    padding:10px 30px;
+    padding-right: 20px;
+    font-weight: 500;
+    width: 180px;
+    align-items:center;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: 0;
+}
+.profile p{
+
+    padding:0;
+    margin:0;
+    color: #000000;
+    width: 120px;
+    white-space: nowrap; /* Текст не переносится */
+    overflow: hidden; /* Обрезаем всё за пределами блока */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+}
+
+.profile:hover{
+    padding-bottom: 6px;
+    background-color: #A6A682;
+    border-bottom: 4px solid #404004;
+    border-radius: 8px 8px 2px 2px;
+}
+
+.profile img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.footer{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    background: #8B8B6B;
+    color: white;
+    height: 40px;
+    align-content: center;
+    justify-items: end;
+    padding:0 20px;
+}
+
+.footer p {
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    padding:0 25px;
+    display:flex;
+    align-items: flex-start;
+
+    gap:45px;
+    flex-wrap: wrap;
+}
+
+.container{
+    background-color: #FEFBF6;
+    border-radius: 30px;
+    padding:35px;
+    padding-top:25px;
+    box-shadow: 3px 3px 10px 0 #3A250333;
+}
+
+.last_books{
+    width: 900px;
+    height:600px;
+    display: flex;
+    flex-direction:column;
+}
+
+.container_header{
+    margin:0px;
+    margin-bottom:35px;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.last_books .container_body{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.last_books .card{
+    width: 260px;
+    
+}
+
+.last_books .card img{
+    display: block;
+    margin:0;
+    margin-bottom: 16px;
+    max-width: 260px;
+    max-height: 370px;
+    transition: transform 0.3s ease;
+
+}
+
+.last_books .card img:hover{
+
+    transform: scale(1.05);
+}
+
+.last_books .card_title{
+    margin:0;
+    margin-bottom: 5px;
+    font-size: 24px;
+    font-weight: 600;
+    white-space: nowrap; /* Текст не переносится */
+    overflow: hidden; /* Обрезаем всё за пределами блока */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+}
+.card_author{
+    margin:0;
+    margin-bottom: 19px;
+    font-size: 16px;
+    white-space: nowrap; /* Текст не переносится */
+    overflow: hidden; /* Обрезаем всё за пределами блока */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+}
+button{
+    appearance: none;
+    font-family: inherit;
+    border: 0;
+    border-radius: 30px;
+    background: #B0B085;
+    color: #fff;
+    padding: 12px 47px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+button:hover {
+    background: #8B8B6B;
+    transform: scale(1.1);
+  }
+  
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px #BCBC8B;
+}
+.my_statistics{
+    width: 750px;
+}
+.my_statistics img{
+    width: 730px;
+}
+.wannaadd{
+    width: 900px;
+    height: 200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    margin-bottom: 25px;
+}
+
+.wannaadd .container_header{
+    font-size: 32px;
+    font-weight: 500;
+    color:#7C7C79;
+}
+
+.wannaadd img{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.add{
+    margin:0;
+    margin-left: auto;
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+    gap:45px;
+    align-items: flex-start;
+}
+
+#add_form{
+    background: rgba(48, 48, 48, 0.5);
+        width: 100%;
+        min-height:100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+}
+#add_form_content{
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width:880px;
+    height: 700px;
+
+    border-radius: 30px;
+    background-color: #FBF7F0;
+    box-shadow: 3px 3px 10px 0 #3A250333;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    padding:50px 60px;
+
+}
+
+#add_form:target {display: block;}
+
+.add_form_title{
+    margin:0;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 56px;
+}
+
+.form-group {
+    width: 880px;
+}
+.close_form{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

@@ -4,11 +4,19 @@
 <link rel="stylesheet" href="calendarstyle.css">
 <div class="container">
     <h1>Конспекты</h1>
-    <div class="form-group">
-        <input type="text" id="bookTitle" placeholder="Название книги">
-        <textarea id="summary" placeholder="Конспект"></textarea>
-        <button id="addButton">Добавить конспект</button>
-    </div>
+
+    <form method="post" action="">
+        {% csrf_token %}
+        {{form}}
+        <input type='submit' value='Добавить'>
+    </form>
+    <ul class='conspects_list'>
+    {%for conspect in conspects%}
+    <li data-id="{{ conspect.id }}">
+        <a href="">{{ conspect.title }}</a> --- {{ conspect.description }} ??{{conspect.id}}??
+    </li>
+    {%endfor %}
+    </ul>
     <div id="summaries"></div>
 </div>
 <script src="{%static 'js/conspect.js'%}"></script>

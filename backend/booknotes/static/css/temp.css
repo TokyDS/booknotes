@@ -1,0 +1,56 @@
+
+/* Стили для основного контента */
+main {
+    max-width: 1200px; /* Максимальная ширина основного контента */
+    margin: 20px auto; /* Автоматические отступы по центру */
+    text-align: center; /* Центрируем текст */
+}
+
+main h1 {
+    color: #333; /* Цвет заголовка */
+}
+
+/* Стили для формы добавления книги */
+input[type="text"], input[type="file"] {
+    width: 300px; /* Ширина поля ввода */
+    padding: 10px;
+    margin: 10px 5px;
+    border: 1px solid #D0D0D0; /* Цвет бордюра */
+    border-radius: 5px; /* Закругленные углы */
+    font-size: 1em;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #5A8B5B; /* Цвет кнопки */
+    color: #fff; /* Цвет текста кнопки */
+    border: none;
+    border-radius: 5px; /* Закругленные углы */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #457a45; /* Цвет кнопки при наведении */
+}
+
+/* Стили для списка книг */
+ul {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0;
+}
+
+li {
+    background-color: #FFFFFF; /* Белый фон для каждой книги */
+    border: 1px solid #D0D0D0; /* Цвет границы */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+    margin: 10px 0;
+    padding: 15px;
+    font-size: 1em; /* Размер текста в списке */
+    transition: transform 0.2s; /* Плавный эффект при наведении */
+}
+
+li:hover {
+    transform: scale(1.02); /* Увеличение списка при наведении */
+}
+

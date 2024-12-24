@@ -1,18 +1,39 @@
 {% extends 'index.html' %}
 {%load static%}
 {%block title%}
-Библиотека
+<title>Библиотека</title>
 {% endblock %}
 
 {% block content%}
-<main>
     <h1>Список книг</h1>
-    <input type="text" id="bookInput" placeholder="Введите название книги">
-    <input type="file" id="bookFile" accept=".txt">
-    <button onclick="addBook()">Добавить книгу</button>
-    
+    {%include 'includes/add_form.html'%}
+    <a class="add" href="#add_form"><button >Загрузить</button></a>
+    <div id="add_form">
+        <div id="add_form_content">
+          <h2 class="add_form_title">Загрузить книгу</h2>
+          <form method="post" action="">
+            {% csrf_token %} {% for field in form %}
+            <div class="form-group">
+              <div class="field_label">{{field.label_tag}}</div>
+              <div class="'field">{{field}}</div>
+            </div>
+            {% endfor %}
+            <input type="submit" value="Добавить"/>
+            <a class="close_form" href="#"
+              ><img src="{%static 'svg/cross.svg'%}" alt=""
+            /></a>
+          </form>
+        </div>
+      </div>
+      
     <h2>Книги:</h2>
-    <ul id="bookList"></ul>
-</main>
-<script src="{%static 'js/library.js'%}"></script>
+    <ul id="bookList">
+        {% for book in books %}
+        <li data-id="{{ book.id }}">
+            <a href="{% url 'book' book.id%}">{{ book.title }}</a> --- {{ book.description }} ??{{book.id}}??
+            <img src="{{book.cover}}" width=120>
+        </li>
+        {% endfor %}
+    </ul>
+    <script src="{%static 'js/library.js'%}"></script>
 {% endblock%}
