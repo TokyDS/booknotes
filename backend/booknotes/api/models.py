@@ -1,10 +1,10 @@
 from django.db import models
 from django.urls import reverse
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 def user_directory_path(instance, filename):
-    return "static/img/books/{1}".format(instance.id, filename)
+    return "static/img/covers/{1}".format(instance.id,filename)
 
 
 class Author(models.Model):
@@ -28,9 +28,11 @@ class Genre(models.Model):
 
 
 class Book(models.Model):
+    user = models.ForeignKey(to=User, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=50)
     description = models.TextField(blank=True)
-    cover = models.ImageField(upload_to=user_directory_path, null=True)
+    cover = models.ImageField(upload_to=user_directory_path, default='static/img/covers/default.jpg')
+    book = models.FileField(upload_to='books/%Y-%m-%d', blank=True, null=True)
     genre = models.ManyToManyField(Genre)
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
 

@@ -1,4 +1,4 @@
-{%extends 'index.html'%}
+{%extends 'base.html'%}
 {%load static%}
 {%block content%}
 <link rel="stylesheet" href="calendarstyle.css">
@@ -19,5 +19,8 @@
     </ul>
     <div id="summaries"></div>
 </div>
+{%include 'includes/add_form.html'%}
+<a class="add" href="#add_form"><button >Загрузить</button></a>
+
 <script src="{%static 'js/conspect.js'%}"></script>
 {% endblock %}

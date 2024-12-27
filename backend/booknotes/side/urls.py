@@ -1,6 +1,8 @@
 from django.urls import path
-from .views import *
 
+from booknotes import settings
+from .views import *
+from django.conf.urls.static import static
 # from . import views
 urlpatterns = [
     # path('', views.index),
@@ -14,3 +16,5 @@ urlpatterns = [
     path("reader", ReaderView.as_view(), name="reader"),
     path("calendar", CalendarView.as_view(), name="calendar"),
 ]
+if settings.DEBUG: # new
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

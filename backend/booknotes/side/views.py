@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView, DeleteView
 from .forms import *
@@ -5,22 +6,25 @@ from api.models import *
 
 
 class IndexView(TemplateView):
-    template_name = "index.html"
+    template_name = "index/index.html"
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["books"] = Book.objects.all().order_by('-pk')[:3]
+        context["books"] = Book.objects.all().order_by("-pk")[:3]
         context["form"] = BookAdd()
         return context
+
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
         if request.method == "POST":
-            form = BookAdd(request.POST)
+            form = BookAdd(request.POST, request.FILES)
             if form.is_valid():
                 form.save()
+
         else:
             form = BookAdd()
+        return HttpResponseRedirect('/')
 
-        return self.render_to_response(context)
 
 class LibraryView(TemplateView):
     template_name = "library.html"
@@ -34,12 +38,12 @@ class LibraryView(TemplateView):
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
         if request.method == "POST":
-            form = BookAdd(request.POST)
+            form = BookAdd(request.POST, request.FILES)
             if form.is_valid():
                 form.save()
-                print("Book added")
         else:
             form = BookAdd()
+        return HttpResponseRedirect('books')
 
         return self.render_to_response(context)
 
@@ -49,7 +53,6 @@ class BookDetailView(DetailView):
     pk_url_kwarg = "book_id"
     template_name = "book.html"
     context_object_name = "book"
-
 
 class BookDeleteView(DeleteView):
     model = Book

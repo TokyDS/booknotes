@@ -2,15 +2,16 @@
 <div id="add_form">
   <div id="add_form_content">
     <h2 class="add_form_title">Загрузить книгу</h2>
-    <form method="post" action="#">
+    <form method="post" action="" enctype="multipart/form-data">
+      <!-- {{form.as_p}} -->
       {% for field in form %}
       <div class="form-group">
         <div class="field_label">{{field.label_tag}}</div>
         <div class="'field">{{field}}</div>
       </div>
-      {% endfor %}
-      {% csrf_token %} 
-      <input type="submit" value="Добавить"/>
+      {% endfor %} 
+      {% csrf_token %}
+      <input type="submit" value="Добавить" />
       <a class="close_form" href="#"
         ><img src="{%static 'svg/cross.svg'%}" alt=""
       /></a>
