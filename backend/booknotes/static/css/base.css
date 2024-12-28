@@ -124,12 +124,13 @@ main {
   flex-wrap: wrap;
 }
 
-main h1 {
+.wrapper h1 {
   margin: 0;
   padding-left: 100px;
   font-size: 48px;
   font-weight: 600;
   line-height: 53px;
+  margin-bottom: 50px;
 }
 
 .container {
@@ -313,9 +314,17 @@ button:focus {
 
 .lib{
     margin: 0px 50px;
+    margin-bottom: 45px;
+    min-width: none;
+    height: 480px ;
+}
+
+.lib:last-child{
+  margin-bottom: 30px;
 }
 .lib .container_body{
     max-width: 1700px;
+    height: 420px;
     display: flex;
     flex-direction: row;
     overflow:scroll;

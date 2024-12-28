@@ -1,41 +1,54 @@
 {% extends 'base.html' %} {%load static%} {%block title%} Библиотека {% endblock %}
  {% block content%}
-<h1>Библиотека</h1>
-{%include 'includes/add_form.html'%}
-
-<div class="container my_collections">
-        
-</div>
-
-<div class="container lib last_opened">
+ <div class="wrapper">
+   
+   <h1>Библиотека</h1>
+  {%include 'includes/add_form.html'%}
+  
+  <!-- <div class="container lib my_collections">
     <h2>Последние книги:</h2>
-        <div class="container_body">
-          {%for book in books%}
-          <div class="card">
-            <img src="{{book.cover.url}}" />
-            <div class="card_title">{{book.title}}</div>
-            <div class="card_author">{{book.author}}</div>
-          </div>
-          {%endfor%}
-        </div>
-</div>
-<div class="container lib all_books">
-  <h2>Все книги:</h2>
-  <div class="container_body">
-    <div class="card">
-      <a class="add" href="#add_form"><img src="{%static 'img/covers/default.jpg'%}" /></a>
+    <div class="container_body">
 
-      <div class="card_title">Добавить книгу</div>
-      <div class="card_author">Нажмите на иконку,чтобы добавить книгу</div>
+      <div class="card">
+        <a class="add" href="#add_form"><img src="{%static 'img/covers/default.jpg'%}" /></a>
+        
+        <div class="card_title">Добавить книгу</div>
+        <div class="card_author">Нажмите на иконку,чтобы добавить книгу</div>
+      </div>
     </div>
-    {%for book in books%}
-    <div class="card">
-      <img src="{{book.cover.url}}" />
-      <div class="card_title">{{book.title}}</div>
-      <div class="card_author">{{book.author}}</div>
+  </div> -->
+  
+  <div class="container lib last_opened">
+    <h2>Последние книги:</h2>
+    <div class="container_body">
+      {%for book in books%}
+      <div class="card">
+        <img src="{{book.cover.url}}" />
+        <div class="card_title">{{book.title}}</div>
+        <div class="card_author">{{book.author}}</div>
+      </div>
+      {%endfor%}
     </div>
-    {%endfor%}
+  </div>
+  <div class="container lib all_books">
+    <h2>Все книги:</h2>
+    <div class="container_body">
+      <div class="card">
+        <a class="add" href="#add_form"><img src="{%static 'img/covers/default.jpg'%}" /></a>
+        
+        <div class="card_title">Добавить книгу</div>
+        <div class="card_author">Нажмите на иконку,чтобы добавить книгу</div>
+      </div>
+      {%for book in books%}
+      <div class="card">
+        <img src="{{book.cover.url}}" />
+        <div class="card_title">{{book.title}}</div>
+        <div class="card_author">{{book.author}}</div>
+      </div>
+      {%endfor%}
+    </div>
   </div>
 </div>
-<script src="{%static 'js/library.js'%}"></script>
-{% endblock%}
+  <script src="{%static 'js/library.js'%}"></script>
+  {% endblock%}
+  

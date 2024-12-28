@@ -81,12 +81,8 @@ WSGI_APPLICATION = "booknotes.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "booknotes",
-        "USER": "postgres",
-        "PASSWORD": "31415926535",
-        "HOST": "",
-        "PORT": "8000",
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 

@@ -64,8 +64,8 @@ class Note(models.Model):
 
 
 class Conspect(models.Model):
-    title = models.CharField()
-    text = models.CharField()
+    title = models.CharField(max_length=50)
+    text = models.CharField(max_length=2560)
     book = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
