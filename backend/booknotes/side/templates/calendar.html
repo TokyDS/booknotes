@@ -1,10 +1,14 @@
 {%extends 'base.html'%}
 {%load static%}
+{% block title %}Календарь{% endblock %}
 
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/cal.css'%}">
+{% endblock %}
 {%block content%}
 <div class="calendar-container">
     <div class="calendar">
-        <div class="header">
+        <div class="calHeader">
             <button id="prevMonth">‹</button>
             <h2 id="monthYear"></h2>
             <button id="nextMonth">›</button>
@@ -13,7 +17,9 @@
     </div>
 </div>
 <div class="book-modal" id="bookModal">
-    <input type="text" id="bookTitle" placeholder="Введите название книги">
+    <select id="bookSelector">
+        <option value="" disabled selected>Выберите книгу</option>
+    </select>
     <button id="saveBook">Сохранить</button>
     <button id="cancelBook">Отменить</button>
 </div>

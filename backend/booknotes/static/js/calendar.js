@@ -6,6 +6,7 @@ const bookTitleInput = document.getElementById('bookTitle');
 const saveBookButton = document.getElementById('saveBook');
 const cancelBookButton = document.getElementById('cancelBook');
 const today = new Date();
+const bookSelect = document.getElementById('bookSelector')
 
 let currentDate = new Date(today.getFullYear(), today.getMonth(), 1);
 let selectedDate = null;
@@ -42,7 +43,7 @@ function renderCalendar() {
 
         dayElement.onclick = () => {
             selectedDate = date;
-            bookTitleInput.value = books[dateKey] || '';
+            bookSelect.value = books[dateKey] || '';
             bookModal.style.display = 'block';
         };
         
@@ -61,7 +62,7 @@ document.getElementById('nextMonth').onclick = () => {
 };
 
 saveBookButton.onclick = () => {
-    const bookTitle = bookTitleInput.value;
+    const bookTitle = bookSelect.value;
     const dateKey = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${selectedDate}`;
     if (bookTitle) {
         books[dateKey] = bookTitle;

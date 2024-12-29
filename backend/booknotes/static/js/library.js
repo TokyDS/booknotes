@@ -13,6 +13,7 @@ function addBook() {
             books.push({ name: bookName, content: bookContent });
             bookInput.value = '';
             bookFile.value = '';
+            saveLibraryBooks(); // Сохраняем книги
             renderBookList();
         };
         reader.readAsText(bookFile.files[0]);
@@ -37,3 +38,14 @@ function showBookContent(index) {
     window.location.href = 'reader'; // Перенаправляем на новую HTML-страницу
 }
 
+function saveLibraryBooks() {
+    localStorage.setItem('libraryBooks', JSON.stringify(books));
+}
+
+window.onload = function() {
+    const storedBooks = JSON.parse(localStorage.getItem('libraryBooks'));
+    if (storedBooks) {
+        books.push(...storedBooks); // Добавляем существующие книги в массив
+    }
+    renderBookList(); // Рендерим список книг
+};

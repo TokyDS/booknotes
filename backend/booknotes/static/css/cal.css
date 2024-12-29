@@ -1,0 +1,166 @@
+.calendar-container {
+    margin: auto;
+}
+
+.calHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.day {
+    width: 130px;
+    height: 120px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    cursor: pointer;
+    padding: 5px;
+    color: #B0B085;
+}
+
+.today {
+    background-color: #D3CEC7;
+}
+
+.has-book {
+    background-color: #b0e0e6;
+}
+
+.book-modal {
+    display: none;
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
+  }
+  /* Общие стили */
+  html,
+  body {
+    height: 100%;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6{
+      margin:0;
+  }
+  body {
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-size: 20px;
+    background-color: #fbf7f0; /* Светлый фон страницы */
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+  header {
+    background-color: #bcbc8b; /* Цвет фона заголовка */
+    height: 60px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  
+  header nav {
+    display: flex;
+    width: 1350px;
+    font-size: 20px;
+    padding-left: 100px;
+    justify-content: space-between;
+  }
+  
+  header .logo {
+    margin: 8px 15px;
+  }
+  nav a {
+    color: #5f5f35; /* Цвет текста ссылок */
+    height: 26px;
+    width: 200px;
+    padding: 17px 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #404004; /* Цвет текста при наведении */
+    transform: scale(1.1);
+    font-weight: 600;
+    background-color: #a6a682;
+    padding-bottom: 13px;
+    border-bottom: 4px solid #404004;
+    border-radius: 8px 8px 2px 2px;
+  }
+  
+  .profile {
+    display: flex;
+    padding: 10px 30px;
+    padding-right: 20px;
+    font-weight: 500;
+    width: 180px;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: 0;
+  }
+  .profile p {
+    padding: 0;
+    margin: 0;
+    color: #000000;
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .profile:hover {
+    padding-bottom: 6px;
+    background-color: #a6a682;
+    border-bottom: 4px solid #404004;
+    border-radius: 8px 8px 2px 2px;
+  }
+  
+  .profile img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  
+  .footer {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    background: #8b8b6b;
+    color: white;
+    height: 40px;
+    align-content: center;
+    justify-items: end;
+    padding: 0 20px;
+  }
+  
+  .footer p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  main {
+    padding: 0 25px;
+    display: flex;
+    align-items: flex-start;
+  
+    gap: 45px;
+    flex-wrap: wrap;
+  }
