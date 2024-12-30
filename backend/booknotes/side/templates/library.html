@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {%load static%} {%block title%} Библиотека {% endblock %}
+{% extends 'base.html' %} {%load static%} 
+{%block title%} Библиотека {% endblock %}
  {% block content%}
  <div class="wrapper">
    
@@ -21,9 +22,13 @@
   <div class="container lib last_opened">
     <h2>Последние книги:</h2>
     <div class="container_body">
-      {%for book in books%}
+      {%for book in last_updated%}
       <div class="card">
-        <img src="{{book.cover.url}}" />
+        <div class="img_wrapper">
+          <a href="{% url 'book' book.id%}">
+          <img src="{{book.cover.url}}"/>
+        </a>
+        </div>
         <div class="card_title">{{book.title}}</div>
         <div class="card_author">{{book.author}}</div>
       </div>
@@ -41,7 +46,11 @@
       </div>
       {%for book in books%}
       <div class="card">
-        <img src="{{book.cover.url}}" />
+        <div class="img_wrapper">
+          <a href="{% url 'book' book.id%}">
+            <img src="{{book.cover.url}}" />
+          </a>
+        </div>
         <div class="card_title">{{book.title}}</div>
         <div class="card_author">{{book.author}}</div>
       </div>

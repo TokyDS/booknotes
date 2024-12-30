@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView, DeleteView
 from .forms import *
 from api.models import *
-
+import html
 
 class IndexView(TemplateView):
     template_name = "index/index.html"
@@ -31,6 +31,7 @@ class LibraryView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["last_updated"] = Book.objects.all().order_by("-pk")
         context["books"] = Book.objects.all()
         context["form"] = BookAdd()
         return context
@@ -45,7 +46,6 @@ class LibraryView(TemplateView):
             form = BookAdd()
         return HttpResponseRedirect('books')
 
-        return self.render_to_response(context)
 
 
 class BookDetailView(DetailView):
@@ -93,7 +93,15 @@ class ConspectView(TemplateView):
 
 
 class ReaderView(TemplateView):
+    model = Book
     template_name = "reader.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        book = Book.objects.get(pk=self.kwargs['book_id'])
+        with book.book.open('r') as f:
+            context["book"] = book
+            context["text"] = html.escape(''.join(f.readlines()))
+        return context
 
 
 class CalendarView(TemplateView):

@@ -13,7 +13,7 @@ urlpatterns = [
     path("login", SignInView.as_view(), name="login"),
     path("registration", SignUpView.as_view(), name="registration"),
     path("conspect", ConspectView.as_view(), name="conspect"),
-    path("reader", ReaderView.as_view(), name="reader"),
+    path("reader/<int:book_id>", ReaderView.as_view(), name="reader"),
     path("calendar", CalendarView.as_view(), name="calendar"),
 ]
 if settings.DEBUG: # new

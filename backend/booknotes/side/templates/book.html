@@ -1,17 +1,70 @@
-{% extends 'base.html' %}
-{%load static%}
-{%block title%}
+{% extends 'base.html' %} {%load static%} {%block title%}
 <title>Библиотека</title>
-{% endblock %}
+{% endblock %} {% block content%}
 
-{% block content%}
-    <a href="{{request.META.HTTP_REFERER}}">Вернуться</a>
-    <h1>
-        {{book.title}}
-    </h1>    
-    <p>
-        {{book.description}}
-    </p>
-    <img src="{{book.cover}}" width=120px>
+<div class="wrapper">
+  <div class="title">
+    <a href="{{request.META.HTTP_REFERER}}">
+      <img src="{%static 'svg/arr_left.svg'%}" alt="" />
+    </a>
+    <h1>Читать книгу</h1>
+  </div>
+  <div class="content">
+    <div class="container book">
+      <img src="{{book.cover.url}}" width="210px" />
+      <div class="book_content">
+        <h2>{{book.title}}</h2>
+        <h3>{{book.author}}</h3>
+        <p>{{book.description}}</p>
+
+        <a class="read" href="{% url 'reader' book.id%}"
+          ><button>Читать</button></a
+        >
+      </div>
+    </div>
+    <div class="statistics">
+
+        <div class="container stat_item">
+            <h4>Прочитано</h4>
+            <div class="data">30%</div>
+
+        </div>
+        <div class="container stat_item">
+            <h4>Общее время чтения</h4>
+            <div class="data">1ч</div>
+
+        </div>
+        <div class="container stat_item">
+            <h4>Скорость чтения</h4>
+            <div class="data"></div>
+        </div>
+        <div class="container stat_item">
+            <h4>Максимальный прогресс за день</h4>
+            <div class="data"></div>
+
+        </div>
+    </div>
+  </div>
+  <div class="additional">
+    <div class="titles">
+        <input checked id="tab-btn-1" name="tab-btn" type="radio" value="">
+        <label for="tab-btn-1">Заметки</label>
+        <input id="tab-btn-2" name="tab-btn" type="radio" value="">
+        <label for="tab-btn-2">Конспекты</label>
+    </div>
+    <div id="conspects" class="cards">
+        <div class="card container">SDA</div>
+        <div class="card container"> ASD</div>
+        <div class="card container"> ASD</div>
+        <div class="card container"> ASD</div>
+    </div>
+    <div id="notes" class="cards">
+        <div class="card container"> </div>
+        <div class="card container"> </div>
+        <div class="card container"> </div>
+        <div class="card container"> </div>
+    </div>
+  </div>
+</div>
 
 {%endblock%}

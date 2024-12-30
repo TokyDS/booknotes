@@ -15,8 +15,8 @@ const books = {}; // Объект для хранения книг по дата
 function renderCalendar() {
     daysContainer.innerHTML = '';
     monthYear.textContent = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
-
-    const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay();
+    const prevMonthLastDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDay();
+    const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDay();
     const lastDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
 
     for (let i = 0; i < firstDay; i++) {

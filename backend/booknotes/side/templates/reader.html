@@ -1,29 +1,39 @@
+{%extends 'base.html'%} {%load static%} {% block style %}
+<link rel="stylesheet" href="{% static 'css/reader.css'%}" />
+{% endblock %} {%block content%}
+<div class="wrapper reader">
+  <div class="left tab">
+    <a class="back" href="{{request.META.HTTP_REFERER}}">
+      <img src="{%static 'svg/arr_left.svg'%}" alt="" />
+    </a>
+    <h1>{{book.title}}</h1>
+    <h2>{{book.author}}</h2>
+    <img src="{{book.cover.url}}" alt="" />
+    
+    <div class="timer">
+      <div class="counter">00:00</div>
+      <div class="buttons">
+        <button class="start">Старт</button>
+        <button class="stop">Стоп</button   >
+      </div>
+    </div>
+  </div>
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Содержание книги</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-    </style>
-</head>
-<body>
-    <h1>Содержание книги</h1>
-    <pre id="contentText"></pre>
-    <button onclick="goBack()">Вернуться</button>
+  <div class="text">{{text}}</div>
+  <div class="right tab">SADAS</div>
+</div>
 
-    <script>
-        function goBack() {
-            window.history.back(); // Возвращаемся на предыдущую страницу
-        }
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+    var scrollpos = sessionStorage.getItem("scrollpos");
+    if (scrollpos) {
+      window.scrollTo(0, scrollpos);
+      sessionStorage.removeItem("scrollpos");
+    }
+  });
 
-        window.onload = function() {
-            const book = JSON.parse(localStorage.getItem('currentBook'));
-            document.getElementById('contentText').innerText = book.content;
-        }
-    </script>
-</body>
-</html>
-
+  window.addEventListener("beforeunload", function (e) {
+    sessionStorage.setItem("scrollpos", window.scrollY);
+  });
+</script>
+{%endblock%}
