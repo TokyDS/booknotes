@@ -2,14 +2,20 @@
 <link rel="stylesheet" href="{% static 'css/reader.css'%}" />
 {% endblock %} {%block content%}
 <div class="wrapper reader">
+  <!-- <div  class="main_line progress"></div> -->
   <div class="left tab">
     <a class="back" href="{{request.META.HTTP_REFERER}}">
       <img src="{%static 'svg/arr_left.svg'%}" alt="" />
     </a>
     <h1>{{book.title}}</h1>
     <h2>{{book.author}}</h2>
-    <img src="{{book.cover.url}}" alt="" />
-    
+    <div class="img_wrapper">
+      <img src="{{book.cover.url}}" alt="" />
+      <div id="progress" class="progress_bar">
+        <div class="complete_line progress"></div>
+      </div>
+    </div>
+    <label id="progressIndicator" for="progress">0% </label>
     <div class="timer">
       <div class="counter">00:00</div>
       <div class="buttons">
@@ -23,17 +29,7 @@
   <div class="right tab">SADAS</div>
 </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function (event) {
-    var scrollpos = sessionStorage.getItem("scrollpos");
-    if (scrollpos) {
-      window.scrollTo(0, scrollpos);
-      sessionStorage.removeItem("scrollpos");
-    }
-  });
-
-  window.addEventListener("beforeunload", function (e) {
-    sessionStorage.setItem("scrollpos", window.scrollY);
-  });
+<script src="{%static 'js/reader.js'%}">
+  var pk = {{book.id}};
 </script>
 {%endblock%}

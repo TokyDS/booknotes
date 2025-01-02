@@ -28,14 +28,15 @@ class Genre(models.Model):
 
 
 class Book(models.Model):
-    user = models.ForeignKey(to=User, null=True, on_delete=models.SET_NULL)
+    author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=50)
     description = models.TextField(blank=True)
+    
     cover = models.ImageField(upload_to=user_directory_path, default='static/img/covers/default.jpg')
     book = models.FileField(upload_to='books/%Y-%m-%d', blank=True, null=True)
     genre = models.ManyToManyField(Genre)
-    author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
-
+    last_opened = models.DateTimeField(auto_now=True)
+    reading_progress = models.IntegerField(default=0, null=False)
     def __str__(self):
         return self.title
 
