@@ -1,62 +1,71 @@
 {%extends 'base.html'%}
 {%load static%}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/profile.css'%}">
+{% endblock %}
 {%block title%}
 Профиль
 {% endblock %}
 {%block content%}
-    <main>
-        <section class="profile">
-            <h1>Моя страница</h1>
-            <div class="profile-info">
-                <img src="profile-pic.png" alt="Фото профиля" class="profile-pic">
-                <div>
-                    <h2 id="displayUsername"></h2>
-                    <p>emailalala@urfu.me</p>
-                    <a href="#" class="change-photo">Изменить фото профиля</a>
-                    <button class="logout">Выход</button>
-                </div>
-            </div>
-        </section>
-        
-        <section class="statistics">
-            <h2>Статистика</h2>
-            <div class="container">
-                <h1>Цель</h1>
-                <label for="goal">Установите цель (страницы):</label>
-                <input type="number" id="goal" placeholder="Введите цель" min="1">
-            
-                <label for="readPages">Количество прочитанных страниц:</label>
-                <input type="number" id="readPagesInput" placeholder="Введите прочитанные страницы" min="0">
-            
-                <button id="addPages">Добавить прочитанные страницы</button>
-            
-                <div class="circle">
-                    <div class="progress" data-percentage="0">
-                        <span></span>
+    <div class="container">
+        <div class="stats">
+            <div class="profile1">
+                <div class="profile-info">
+                    <img src="https://via.placeholder.com/100" alt="Фото профиля">
+                    <div>
+                        <h1 id="displayUsername">Моё имя</h1>
+                        <p id="displayEmail">emaillalala@urfu.me</p>
+                        <button class="logout">Выйти</button>
                     </div>
-                    <p id="status">0/0</p>
-                </div>
-            
-                <p id="congratulationsMessage" style="display: none;">Поздравляем! Вы выполнили цель.</p>
-            </div>
-            <div class="weekly-summary">
-                <h3>Понедельник</h3>
-                <div class="days">
-                    <span>Пн</span>
-                    <span>Вт</span>
-                    <span>Ср</span>
-                    <span>Чт</span>
-                    <span>Пт</span>
-                    <span>Сб</span>
-                    <span>Вс</span>
                 </div>
             </div>
-            <div class="total-summary">
-                <p>Всего прочитано книг: <strong>20</strong></p>
-                <p>Общее время чтения: <strong>125</strong> минут</p>
+            <div class="card">
+                <h2>Цели</h2>
+                <div class="goals">
+                    <label for="goal">Установите цель (страницы):</label>
+                    <input type="number" id="goal" placeholder="Введите цель" min="1">
+                
+                    <label for="readPages">Количество прочитанных страниц:</label>
+                    <input type="number" id="readPagesInput" placeholder="Введите прочитанные страницы" min="0">
+                
+                    <button id="addPages">Добавить прочитанные страницы</button>
+                    <p id="congratulationsMessage" style="display: none;">Поздравляем! Вы выполнили цель.</p>
+                    <div class="circle">70/100</div>
+                    <div class="days">
+                        <div>ПН</div>
+                        <div>ВТ</div>
+                        <div>СР</div>
+                        <div>ЧТ</div>
+                        <div>ПТ</div>
+                        <div>СБ</div>
+                        <div>ВС</div>
+                    </div>
+                </div>
             </div>
-        </section>
-    </main>
+            <div class="card">
+                <h2>Статистика</h2>
+                <img src="{%static 'img/dirt/stat.png'%}" alt="" />
+            </div>
+            <div class="summary">
+                <div>
+                <h3>Всего прочитано книг:</h3>
+                <p>20</p>
+                </div>
+                <div>
+                <h3>Общее время чтения:</h3>
+                <p>125</p>
+                </div>
+                <div>
+                <h3>Скорость чтения:</h3>
+                <p>23 стр/ч</p>
+                </div>
+                <div>
+                <h3>Максимальное кол-во страниц за день:</h3>
+                <p>20</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="{%static 'js/goal.js'%}"></script>
 
     {%endblock%}

@@ -1,4 +1,18 @@
-
+window.onload = function() {
+    var storedUsername = localStorage.getItem('username');
+    var storedEmail = localStorage.getItem('email');
+    if (storedUsername) {
+        document.getElementById('displayUsername').textContent = storedUsername;
+    } else {
+        document.getElementById('displayUsername').textContent = 'Гость';
+    }
+    if (storedEmail) {
+        document.getElementById('displayEmail').textContent = storedEmail;
+    }
+    else {
+        document.getElementById('displayEmail').textContent = 'Гость';
+    }
+};
 // Переменные для хранения данных
 let goalPages = 0;
 let readPages = 0;
