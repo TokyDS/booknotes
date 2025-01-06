@@ -1,26 +1,48 @@
-{%extends 'base.html'%}
-{%load static%}
+{%extends 'base.html'%} {%load static%} 
+{%block title%}
+Конспекты
+{%endblock%}
 {%block content%}
-<link rel="stylesheet" href="calendarstyle.css">
-<div class="container">
-    <h1>Конспекты</h1>
+<div class="wrapper">
 
-    <form method="post" action="">
-        {% csrf_token %}
-        {{form}}
-        <input type='submit' value='Добавить'>
-    </form>
-    <ul class='conspects_list'>
-    {%for conspect in conspects%}
-    <li data-id="{{ conspect.id }}">
-        <a href="">{{ conspect.title }}</a> --- {{ conspect.description }} ??{{conspect.id}}??
-    </li>
-    {%endfor %}
-    </ul>
-    <div id="summaries"></div>
-</div>
+    <link rel="stylesheet" href="calendarstyle.css" />
+    <h1>Мои конспекты</h1>
+    <a class="add" href="#add_form">+ Добавить новый конспект</a>
+    {% comment %} <form method="post" action="">
+        {% csrf_token %} {{form}}
+        <input type="submit" value="Добавить" />
+    </form> {% endcomment %}
+    <div class="conspects">
+        
+        {%for conspect in conspects%}
+        <div class="container conspect">
+            <img src="{{conspect.book.cover.url}}" width="140px" />
+
+            <!-- <img src="{%static 'img/covers/default.jpg'%}" width="140px" /> -->
+            <div class="header">
+                <div class="names">
+                    <h2>
+                        {{ conspect.book.title }}
+                    </h2>
+                    <h3>
+                        {{conspect.book.author}}
+                    </h3>
+
+                </div>
+                <div class="date">
+                    <p>{{ conspect.create_date|date:'d.M.Y' }}</p>
+                </div>
+            </div>
+            <p>
+                {{ conspect.text }}
+            </p>
+        </div>
+        {%endfor %}
+    </div>
+</ul>
+<div id="summaries"></div>
 {%include 'includes/add_form.html'%}
-<a class="add" href="#add_form"><button >Загрузить</button></a>
+</div>
 
 <script src="{%static 'js/conspect.js'%}"></script>
 {% endblock %}

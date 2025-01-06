@@ -2,7 +2,7 @@
 {%block title%} Библиотека {% endblock %}
  {% block content%}
  <div class="wrapper">
-   
+    
    <h1>Библиотека</h1>
   {%include 'includes/add_form.html'%}
   
@@ -39,7 +39,7 @@
     <h2>Все книги:</h2>
     <div class="container_body">
       <div class="card">
-        <a class="add" href="#add_form"><img src="{%static 'img/covers/default.jpg'%}" /></a>
+        <a class="add_book" href="#add_form"><img src="{%static 'img/covers/default.jpg'%}" /></a>
         
         <div class="card_title">Добавить книгу</div>
         <div class="card_author">Нажмите на иконку,чтобы добавить книгу</div>

@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {%load static%} {%block title%}
-<title>Библиотека</title>
+{{book.title}}
 {% endblock %} {% block content%}
 
 <div class="wrapper">
@@ -26,7 +26,7 @@
 
         <div class="container stat_item">
             <h4>Прочитано</h4>
-            <div class="data">30%</div>
+            <div class="data">{{book.reading_progress}}%</div>
 
         </div>
         <div class="container stat_item">
@@ -53,16 +53,18 @@
         <label for="tab-btn-2">Конспекты</label>
     </div>
     <div id="conspects" class="cards">
-        <div class="card container">SDA</div>
-        <div class="card container"> ASD</div>
-        <div class="card container"> ASD</div>
-        <div class="card container"> ASD</div>
+        {% for conpect in conspects %}
+        <div class="card container">
+            <h4>{{ conpect.title }}</h4>
+            <p>{{ conpect.description }}</p>
+        </div>
+        {% endfor %}
     </div>
     <div id="notes" class="cards">
+        {% comment %} <div class="container"> </div>
+        <div class="container"> </div>
         <div class="card container"> </div>
-        <div class="card container"> </div>
-        <div class="card container"> </div>
-        <div class="card container"> </div>
+        <div class="card container"> </div> {% endcomment %}
     </div>
   </div>
 </div>

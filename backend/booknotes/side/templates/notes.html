@@ -1,0 +1,38 @@
+{%extends 'base.html'%} {%load static%} 
+{%block title%}
+Заметки
+{%endblock%}
+{%block content%}
+<div class="wrapper">
+
+    <link rel="stylesheet" href="calendarstyle.css" />
+    <h1>Мои заметки</h1>
+    <a class="add" href="#add_form">+ Добавить новую заметку</a>
+    {% comment %} <form method="post" action="">
+        {% csrf_token %} {{form}}
+        <input type="submit" value="Добавить" />
+    </form> {% endcomment %}
+    <div class="notes">
+
+        {%for note in notes %}
+        <div class="container note">
+            <div class="content">
+
+                <p>
+                    {{ note.text }}
+                </p>
+                <h2>
+                    {{ note.book.title }}
+                </h2> 
+            </div>
+            <img src="{{note.book.cover.url}}" width="70px" />
+        </div>
+        {%endfor %}
+    </div>
+</ul>
+<div id="summaries"></div>
+{%include 'includes/add_form.html'%}
+</div>
+
+<script src="{%static 'js/conspect.js'%}"></script>
+{% endblock %}

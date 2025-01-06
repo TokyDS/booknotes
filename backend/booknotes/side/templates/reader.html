@@ -1,6 +1,10 @@
 {%extends 'base.html'%} {%load static%} {% block style %}
 <link rel="stylesheet" href="{% static 'css/reader.css'%}" />
-{% endblock %} {%block content%}
+{% endblock %} 
+{%block title%}
+{{book.title}}
+{%endblock%}
+{%block content%}
 <div class="wrapper reader">
   <!-- <div  class="main_line progress"></div> -->
   <div class="left tab">
@@ -15,7 +19,7 @@
         <div class="complete_line progress"></div>
       </div>
     </div>
-    <label id="progressIndicator" for="progress">0% </label>
+    <label id="progressIndicator" for="progress">{{book.reading_progress}}% </label>
     <div class="timer">
       <div class="counter">00:00</div>
       <div class="buttons">
@@ -26,10 +30,15 @@
   </div>
 
   <div class="text">{{text}}</div>
-  <div class="right tab">SADAS</div>
+  <div class="right tab"></div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-<script src="{%static 'js/reader.js'%}">
+{%csrf_token%}
+<script>
+  const csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
   var pk = {{book.id}};
+</script>
+<script src="{%static 'js/reader.js'%}">
 </script>
 {%endblock%}

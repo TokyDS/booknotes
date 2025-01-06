@@ -13,9 +13,11 @@
                 <div class="profile-info">
                     <img src="https://via.placeholder.com/100" alt="Фото профиля">
                     <div>
-                        <h1 id="displayUsername">Моё имя</h1>
+                        <h1 id="displayUsername">{{user.name}}</h1>
                         <p id="displayEmail">emaillalala@urfu.me</p>
-                        <button class="logout">Выйти</button>
+                        <a href="/logout">
+                            <button class="logout">Выйти</button>
+                        </a>
                     </div>
                 </div>
             </div>

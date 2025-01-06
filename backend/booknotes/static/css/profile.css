@@ -1,7 +1,9 @@
 .container {
 padding: 40px;
 }
-
+a {
+  text-decoration: none;
+}
 .profile1 {
 background-color: #ffffff;
 border-radius: 20px;
